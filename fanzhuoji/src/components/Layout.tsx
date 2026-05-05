@@ -43,11 +43,11 @@ export const Layout = () => {
           
           <div className="py-4 pr-8 shrink-0 flex items-center">
             <nav className="flex space-x-3 relative z-10">
-              <NavItemDesktop to="/home" icon={ChefHat} label="今天吃啥" />
-              <NavItemDesktop to="/recipes" icon={BookHeart} label="我的菜谱" />
-              <NavItemDesktop to="/memories" icon={PartyPopper} label="💡家宴灵感" />
-              <NavItemDesktop to="/menu" icon={CalendarDays} label="这周菜单" />
-              <NavItemDesktop to="/plus" icon={Sparkles} label="Plus" />
+            <NavItemDesktop to="/home" icon={ChefHat} label="今天吃啥" />
+            <NavItemDesktop to="/recipes" icon={BookHeart} label="我的菜谱" />
+            <NavItemDesktop to="/menu" icon={CalendarDays} label="这周菜单" />
+            <NavItemDesktop to="/memories" icon={PartyPopper} label="💡家宴灵感" />
+            <NavItemDesktop to="/plus" icon={Sparkles} label="Plus" />
             </nav>
           </div>
         </div>
@@ -63,8 +63,8 @@ export const Layout = () => {
         <div className="flex justify-around items-center h-20 px-2">
           <NavItem to="/home" icon={ChefHat} label="今天吃啥" />
           <NavItem to="/recipes" icon={BookHeart} label="我的菜谱" />
-          <NavItem to="/memories" icon={PartyPopper} label="💡家宴灵感" />
           <NavItem to="/menu" icon={CalendarDays} label="这周菜单" />
+          <NavItem to="/memories" icon={PartyPopper} label="💡家宴灵感" />
           <NavItem to="/plus" icon={Sparkles} label="Plus" />
         </div>
       </nav>

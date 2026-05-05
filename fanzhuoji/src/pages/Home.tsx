@@ -92,7 +92,7 @@ export const Home = () => {
       </section>
 
       {/* 按场景推荐 */}
-      <section className="space-y-4">
+      <section className="space-y-4 pb-8">
         <h3 className="text-xl font-black text-slate-800 flex items-center gap-2">
           <Soup size={24} className="text-brand" />
           按场景推荐
@@ -100,8 +100,8 @@ export const Home = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {scenarios.map((scene, idx) => (
             <div key={idx} className="card p-3 md:p-4 cursor-pointer group flex flex-col gap-2">
-              <div className="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-brand group-hover:scale-110 transition-transform">
-                <scene.icon size={20} strokeWidth={2.5} />
+              <div className="w-10 h-10 rounded-xl flex items-center justify-start text-brand group-hover:scale-110 transition-transform">
+                <scene.icon size={24} strokeWidth={2.5} />
               </div>
               <div>
                 <h4 className="font-black text-base text-slate-800 mb-0.5 group-hover:text-brand transition-colors">{scene.title}</h4>

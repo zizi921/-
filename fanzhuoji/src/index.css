@@ -14,17 +14,17 @@
     background-image: url('/left-bg.png');
     background-repeat: no-repeat;
     background-position: left center;
-    background-size: 800px auto;
+    background-size: 1000px auto;
     background-attachment: fixed;
   }
   @media (min-width: 1280px) {
     body {
-      background-size: 1000px auto;
+      background-size: 1300px auto;
     }
   }
   @media (max-width: 1024px) {
     body {
-      background-size: 600px auto;
+      background-size: 800px auto;
       background-position: -20px center;
     }
   }
