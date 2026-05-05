@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ChefHat, UtensilsCrossed, RefreshCw, Plus, Heart, Sparkles, Utensils, Coffee, Pizza, Soup, Users } from 'lucide-react';
+import { UtensilsCrossed, RefreshCw, Heart, Utensils, Coffee, Pizza, Soup, Users } from 'lucide-react';
 import { mockRecipes } from '../data/mock';
 
 export const Home = () => {
-  const navigate = useNavigate();
   const [randomDish, setRandomDish] = useState('');
   const [activeFilter, setActiveFilter] = useState('随便吃');
 

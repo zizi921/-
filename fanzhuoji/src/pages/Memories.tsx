@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Users, Utensils, CalendarDays, Camera, PartyPopper, Heart, X, ImagePlus, Type, Pencil, Trash2 } from 'lucide-react';
+import { Utensils, CalendarDays, Camera, PartyPopper, Heart, X, ImagePlus, Type, Pencil, Trash2 } from 'lucide-react';
 
 export const Memories = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -166,7 +166,7 @@ export const Memories = () => {
               {/* Action Buttons (Absolute positioned on card) */}
               <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20 flex gap-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all">
                 <button 
-                  onClick={(e) => handleOpenModal(memory)}
+                  onClick={() => handleOpenModal(memory)}
                   className="p-2.5 bg-white text-slate-400 hover:text-brand hover:border-brand border-[3px] border-slate-100 rounded-xl shadow-sm transition-all"
                   title="编辑记录"
                 >
