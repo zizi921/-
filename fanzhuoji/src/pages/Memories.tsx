@@ -5,29 +5,42 @@ export const Memories = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [memoriesList, setMemoriesList] = useState<any[]>(() => {
-    const saved = localStorage.getItem('fanzhuoji_memories');
+    const saved = localStorage.getItem('fanzhuoji_memories_v2');
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (parsed && parsed.length > 0) return parsed;
+        if (parsed && parsed.length > 0) {
+          return parsed;
+        }
       } catch (e) {}
     }
-    // Default initial memory if nothing in localStorage
-    return [{
-      id: Date.now().toString(),
-      title: '🥟🥟🥟🥟🥟',
-      date: '2026.04.19',
-      dishes: '🥟茴香猪肉/香菜牛肉/鱿鱼韭菜/西洋菜鲜虾/芹菜',
-      memory: '好吃！',
-      imageUrl: ''
-    }];
+    // Default initial memories if nothing in localStorage
+    return [
+      {
+        id: '1',
+        title: '🥟🥟🥟🥟🥟',
+        date: '2026.04.19',
+        dishes: '🥟茴香猪肉/香菜牛肉/鱿鱼韭菜/西洋菜鲜虾/芹菜',
+        memory: '好吃！',
+        imageUrl: '/dumplings.png'
+      },
+      {
+        id: '2',
+        title: '周末丰盛家宴',
+        date: '2026.03.08',
+        dishes: '花蛤粉丝、麻婆豆腐、酱爆螺蛳、红烧排骨、清炒蚕豆、响油鳝丝、清炒菠菜',
+        memory: '满满一大桌子菜，朋友聚餐超级满足！',
+        imageUrl: '/feast.png'
+      }
+    ];
   });
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Save to localStorage whenever memoriesList changes
   const updateMemories = (newList: any[]) => {
     setMemoriesList(newList);
-    localStorage.setItem('fanzhuoji_memories', JSON.stringify(newList));
+    localStorage.setItem('fanzhuoji_memories_v2', JSON.stringify(newList));
   };
 
   const [newMemory, setNewMemory] = useState({
@@ -63,7 +76,7 @@ export const Memories = () => {
 
   const handleDelete = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    if (window.confirm('确定要删除这条饭桌回忆吗？')) {
+    if (window.confirm('确定要删除这条记录吗？')) {
       updateMemories(memoriesList.filter(mem => mem.id !== id));
     }
   };
@@ -127,8 +140,7 @@ export const Memories = () => {
             留住每个好味道
           </div>
           <h1 className="text-4xl md:text-5xl font-black text-slate-800 flex items-center gap-3 drop-shadow-sm">
-            <PartyPopper className="text-brand stroke-[2.5]" size={40} />
-            饭桌回忆
+            💡 家宴灵感
           </h1>
         </div>
         <button 
@@ -144,7 +156,7 @@ export const Memories = () => {
       {memoriesList.length === 0 ? (
         <div className="card p-12 flex flex-col items-center justify-center text-center space-y-4 text-slate-400">
           <Camera size={48} className="text-slate-300" />
-          <p className="font-bold text-lg">还没有记录饭局回忆哦，快去记录第一次吧！</p>
+          <p className="font-bold text-lg">还没有记录家宴灵感哦，快去记录第一次吧！</p>
         </div>
       ) : (
         <div className="grid gap-6">
@@ -156,14 +168,14 @@ export const Memories = () => {
                 <button 
                   onClick={(e) => handleOpenModal(memory)}
                   className="p-2.5 bg-white text-slate-400 hover:text-brand hover:border-brand border-[3px] border-slate-100 rounded-xl shadow-sm transition-all"
-                  title="编辑回忆"
+                  title="编辑记录"
                 >
                   <Pencil size={20} strokeWidth={2.5} />
                 </button>
                 <button 
                   onClick={(e) => handleDelete(memory.id, e)}
                   className="p-2.5 bg-white text-slate-400 hover:text-red-500 hover:border-red-500 border-[3px] border-slate-100 rounded-xl shadow-sm transition-all"
-                  title="删除回忆"
+                  title="删除记录"
                 >
                   <Trash2 size={20} strokeWidth={2.5} />
                 </button>
@@ -223,7 +235,7 @@ export const Memories = () => {
             <div className="sticky top-0 z-10 bg-white border-b-[3px] border-slate-100 p-6 flex items-center justify-between">
               <h2 className="text-2xl font-black text-slate-800 flex items-center gap-2">
                 <Camera className="text-brand" size={28} />
-                {editingId ? '修改饭局回忆' : '记录新饭局'}
+                {editingId ? '修改家宴灵感' : '记录新饭局'}
               </h2>
               <button 
                 onClick={() => setIsModalOpen(false)}
@@ -344,7 +356,7 @@ export const Memories = () => {
                 onClick={handleSave}
                 className="btn-primary"
               >
-                保存回忆
+                保存记录
               </button>
             </div>
           </div>

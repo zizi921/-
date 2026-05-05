@@ -24,18 +24,13 @@ export const Home = () => {
   };
 
   return (
-    <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-6xl mx-auto">
+    <div className="space-y-6 md:space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-6xl mx-auto">
       
       {/* 第一屏内容：左右布局 */}
-      <section className="flex flex-col md:flex-row gap-8 items-stretch">
+      <section className="flex flex-col md:flex-row gap-6 items-center">
         
         {/* 左侧：标题与操作 */}
         <div className="flex-1 flex flex-col justify-center items-start space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 border-2 border-brand-light rounded-full text-brand font-bold text-sm">
-            <Sparkles size={16} />
-            今天也要好好吃饭
-          </div>
-          
           <h1 className="text-5xl md:text-6xl font-black text-slate-800 tracking-wider drop-shadow-sm">
             今天吃啥？
           </h1>
@@ -63,41 +58,13 @@ export const Home = () => {
           </div>
         </div>
 
-        {/* 右侧：今日推荐卡片 */}
-        <div className="flex-1">
-          <div className="card h-full flex flex-col justify-between bg-gradient-to-br from-white to-orange-50/50">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-black text-brand tracking-widest flex items-center gap-2">
-                <ChefHat size={20} className="stroke-[2.5]" />
-                今日推荐
-              </h2>
-            </div>
-            
-            <div className="flex-1 flex items-center justify-center py-6 relative">
-              <div className="absolute opacity-10 blur-[2px] right-0 top-0 text-[100px]">🍅</div>
-              <div className="absolute opacity-10 blur-[2px] left-0 bottom-0 text-[80px]">🍚</div>
-              <div className="text-center z-10">
-                <h3 className="text-4xl font-black text-slate-800 mb-3">番茄牛腩饭</h3>
-                <p className="text-slate-500 font-bold tracking-wide mb-6">热乎乎的一碗，适合认真吃饭的一天。</p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {['家常', '下饭', '晚餐', '约 45 分钟'].map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-white border-2 border-brand-light/30 text-slate-600 text-sm rounded-xl font-bold">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-3 pt-4 border-t-2 border-brand-light/20 mt-4">
-              <button className="flex-1 py-3 px-4 rounded-xl font-extrabold text-slate-600 bg-white border-[3px] border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all flex justify-center items-center gap-2">
-                <RefreshCw size={18} className="stroke-[2.5]" />换一道
-              </button>
-              <button className="flex-1 py-3 px-4 rounded-xl font-extrabold text-white bg-brand border-[3px] border-brand-dark hover:bg-brand-dark transition-all flex justify-center items-center gap-2 shadow-[0_4px_0_#232221] active:translate-y-1 active:shadow-none">
-                <Plus size={18} className="stroke-[2.5]" />加入本周菜单
-              </button>
-            </div>
-          </div>
+        {/* 右侧：插画 */}
+        <div className="flex-1 flex items-center justify-center relative">
+          <img 
+            src="/today-special.png" 
+            alt="开饭啦" 
+            className="w-full max-w-sm md:max-w-md h-auto object-contain mix-blend-multiply"
+          />
         </div>
       </section>
 
@@ -130,15 +97,15 @@ export const Home = () => {
           <Soup size={24} className="text-brand" />
           按场景推荐
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {scenarios.map((scene, idx) => (
-            <div key={idx} className="card p-5 cursor-pointer group flex flex-col gap-3">
-              <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-brand group-hover:scale-110 transition-transform">
-                <scene.icon size={24} strokeWidth={2.5} />
+            <div key={idx} className="card p-3 md:p-4 cursor-pointer group flex flex-col gap-2">
+              <div className="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-brand group-hover:scale-110 transition-transform">
+                <scene.icon size={20} strokeWidth={2.5} />
               </div>
               <div>
-                <h4 className="font-black text-lg text-slate-800 mb-1 group-hover:text-brand transition-colors">{scene.title}</h4>
-                <p className="text-sm text-slate-500 font-bold tracking-wide">{scene.desc}</p>
+                <h4 className="font-black text-base text-slate-800 mb-0.5 group-hover:text-brand transition-colors">{scene.title}</h4>
+                <p className="text-xs text-slate-500 font-bold tracking-wide">{scene.desc}</p>
               </div>
             </div>
           ))}

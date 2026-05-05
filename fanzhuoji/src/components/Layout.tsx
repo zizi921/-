@@ -39,15 +39,6 @@ export const Layout = () => {
       {/* Desktop Header */}
       <header className="hidden md:flex bg-white sticky top-0 z-50 border-b-[3px] border-brand shadow-sm overflow-visible">
         <div className="w-full flex items-stretch justify-between max-w-[1600px] mx-auto relative pl-0">
-          {/* Single Custom Image on the left */}
-          <div className="absolute left-8 bottom-0 flex-shrink-0 z-20 pointer-events-none overflow-hidden h-[115px]">
-            <img 
-              src="/nav-chefs.png" 
-              alt="Chefs" 
-              className="h-[135px] max-w-none mix-blend-multiply object-top"
-            />
-          </div>
-          
           <div className="flex-1"></div>
           
           <div className="py-4 pr-8 shrink-0 flex items-center">
