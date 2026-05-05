@@ -8,11 +8,11 @@ export const Landing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4 relative z-10 overflow-hidden w-full">
       {/* 主插图 */}
       <div 
         onClick={handleEnter}
-        className="w-full max-w-[32rem] md:max-w-[48rem] cursor-pointer"
+        className="w-full max-w-[24rem] md:max-w-[36rem] lg:max-w-[42rem] cursor-pointer relative z-10 hover:scale-105 transition-transform duration-500"
       >
         <img 
           src="/chef3.png" 
@@ -22,8 +22,8 @@ export const Landing = () => {
       </div>
 
       {/* 提示文字 */}
-      <p className="mt-8 text-slate-400 font-medium text-sm tracking-widest">
-        点击厨师头像进入主页
+      <p className="mt-8 text-slate-500 font-bold tracking-wide">
+        纪录今天吃什么，也纪录我们一起吃过的饭。
       </p>
     </div>
   );

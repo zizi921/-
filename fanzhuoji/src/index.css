@@ -1,30 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FFF9F0;
-  --color-brand-light: #FFB888;
-  --color-brand: #FF8844;
-  --color-brand-dark: #E66A26;
+  --color-cream: #FAF8F5;
+  --color-brand-light: #7E7C79;
+  --color-brand: #3A3836;
+  --color-brand-dark: #232221;
   --font-sans: "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-white text-slate-800 antialiased;
+    @apply text-brand antialiased min-h-screen bg-white;
+    background-image: url('/left-bg.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 800px auto;
+    background-attachment: fixed;
+  }
+  @media (min-width: 1280px) {
+    body {
+      background-size: 1000px auto;
+    }
+  }
+  @media (max-width: 1024px) {
+    body {
+      background-size: 600px auto;
+      background-position: -20px center;
+    }
   }
   ::selection {
-    @apply bg-brand-light text-white;
+    @apply bg-brand text-white;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand text-white px-6 py-3 rounded-full font-medium shadow-sm hover:bg-brand-dark transition-all active:scale-95;
+    @apply bg-brand text-white px-6 py-3 rounded-2xl font-extrabold tracking-widest transition-all active:translate-y-1 active:shadow-none shadow-[0_4px_0_#232221] hover:-translate-y-1 hover:shadow-[0_6px_0_#232221];
   }
   .btn-secondary {
-    @apply bg-white text-brand border-2 border-brand px-6 py-3 rounded-full font-medium shadow-sm hover:bg-orange-50 transition-all active:scale-95;
+    @apply bg-white text-brand border-[3px] border-brand px-6 py-3 rounded-2xl font-extrabold tracking-widest transition-all active:translate-y-1 active:shadow-none shadow-[0_4px_0_#3A3836] hover:-translate-y-1 hover:shadow-[0_6px_0_#3A3836] hover:bg-slate-50;
   }
   .card {
-    @apply bg-white rounded-3xl p-6 shadow-sm border border-orange-100;
+    @apply bg-white rounded-3xl p-6 shadow-[0_8px_0_rgba(58,56,54,0.15)] border-[3px] border-brand transition-all hover:-translate-y-2 hover:shadow-[0_12px_0_rgba(58,56,54,0.2)];
   }
 }
